@@ -34,6 +34,36 @@ git init
 	todas las versiones las ramas va a estar en esta carpeta
 
 -------------------------------------------------------------------------------------
+
+CAMBIAR NOMBRE ELIMINAR DESDE GIT
+		Si lo haces desde git mantiene toda la historia de los cambios en el repositorio
+
+		git mv destruir.txt salvar.txt cambia nombre
+			despues haces el commit -m "Renombrando el archivo"
+		git rm salvar.txt
+			borrar un archivo
+			despues haces el commit -m "Borrando el archivo"
+
+		si lo cambias el nombre fuera de git
+			git status
+			git add -u actualiza todo
+			git add -A
+			git s
+			hacer el commit -m ""
+
+-------------------------------------------------------------------------------------
+
+IGNORAR ARCHIVOS
+		crear un archivo que se llame
+		.gitignore		
+			escribir dentro
+			data.log y ese archivo lo excluiria
+			escluir un directorio
+			node_modules/
+		el .gitignore le agregas commit
+
+-------------------------------------------------------------------------------------
+
 git status
  	 en que estado se entuentran nuestros archivos
  	 si esta en rojo estan modificados desde el ultimo commit hasta la fecha
@@ -114,9 +144,29 @@ INCLUIR MODIFICACIONES EN UN COMMIT YA HECHO
 VIAJES EN EL TIEMPO
 
 
-	
+	git lg te saca un id de commits, con ese id puedes ir a un commit en concreto
 
+	git reset --soft 1ce2665 te vas al commit que elijas
+		el archivo que elijas puede que tenga modificaciones que no estan agregadas en el repositorio actual al que has ido en el tiempo
+		porque has ido mas para atras antes de hacerlo, pero te las mantiene los ultimos cambios
 
+		volveriaas hacer git add y git commit con los cambios
+
+	--mixed		
+		vuelves atras en el tiempo pero no te borra los archivos de los ultimos cambios
+		fueron quitados del escenario pero aun contienen las modificaciones
+
+	--hard
+		si has tenido errores y no quieres tenerlos esto te borra los archivos que no esten en estos commits
+		si haces git status ya no aparecen los archivos
+
+	GIT MANTIENE UN REGISTRO DE TODO LO QUE SUCEDE EN EL REPOSITORIO
+
+	 git reflog
+			 te saca listado de como estaba antes de borrar nada
+
+			 y despues eliges el punto que quieres regresar vuelves con al punto inicial donde estaba
+			 git reset --hard 1ce2665
 
 
 -------------------------------------------------------------------------------------
