@@ -1,0 +1,275 @@
+APUNTES GIT
+----------------------
+
+-instalar git
+descargar de https://git-scm.com/
+
+-git --version
+
+	trabajar en la version 2.13 o superior
+
+ git help
+ 	ayuda de comandos
+
+ git help commit
+ 	ayuda de comando en concreto
+
+ q
+ 	para salir 
+
+ git config --global user.name
+
+ git config --global -e
+ 	abre los datos del usuario de git
+ 	para salir :q y enter
+
+ git init
+ 	dentro de la carpeta que tenemos el proyecto escribir git init para que cree un repositorio
+	-crea una carpeta .git en modo oculto dentro del proyecto
+
+ git status
+ 	 en que estado se entuentran nuestros archivos
+
+ git status -s
+ 	mas corto
+
+ git status -s -b
+ 	para ver la rama en la que estamos trabajando
+
+git add .
+ 	 agregar todos los archivos para que git este pendiente de los cambios
+ 	 los manda al escenario, ahi esta lista para tomar fotografias
+
+git add readme.md
+	agrega un archivo en concreto
+
+git add *.png
+	agrega todos los archivos con extension .png
+
+git add css/
+	agrega todos los archios de la carpeta css
+
+git add -A
+	agrega todos los archivos que fueron modificados
+
+git add
+		"*.txt" agrega todos los txt de todo el proyecto
+		*.txt agrega  todos los txt del directorio actual
+		--all agrega todos los archivos modificados
+		<lista de archivos >
+		pdfs/*.pdf
+		pdfs/ todos los archivos dentro de esta carpeta
+
+git reset *.xml
+	excluir del escenario un archivo este seria los archivos ocn extension .xml
+
+git reset HEAD nombrearchivo.txt	
+	lo saca del escenario
+
+git checkout --nombrearchivo.txt
+	lo deja como estaba antes de modificarlo
+
+git commit -m "Primer commit"
+	 toma una fotografia de como se encuentra el proyecto en este momento
+
+git commit
+	te abre un archivo para que escribas el mensaje en varias lineas
+
+	tocar escape y luego
+	:WQ grabar y salir
+
+git checkout -- .
+	vuelve al ultimo commit aunque hayas borrado todo
+	si has borrado la carpeta js o otra tambien la recupera
+
+git log
+	para ver los commit que hay creados
+git log --oneline
+	ver en una linea
+git log --oneline --decorate --all --graph
+
+	alias
+		para no tener que escribir tanto
+
+		git config --global alias.lg "log --oneline --decorate --all --graph"
+
+		cuando escribas ahora git lg ejecuta todo los que pusiste entre comillas
+
+	ver todos los alias que tengas
+		git config --global -e	
+		para salir :q
+
+git diff
+	Nos dice los cambios que hubo en los archivos, ente el ultimo commit y la actualidad		
+
+git diff --staged
+
+	lo mismo pero de los que estan en el escenario
+
+
+REVERTIR UN COMMIT	
+
+	CAMBIA EL MENSAJE
+		git commit --amend -m "Actualizar texto del commit"
+	
+	CAMBIAR EL Contenido Del ARCHIVO DEL COMMIT
+		head apunta al ultimo commit
+		^Como estaba antes del ultimo commit
+
+		soft menos destructivo, no va borrar ni modificar nada
+		lo va a rebertir a un determinado punto en nuestra historia
+
+		hard destruye los cambios posteriores al punto que elijas
+		
+		mixed no borra los archivos que no estan en los commit, los quita del staged pero contienen las modificaciones
+
+		git reset --soft HEAD^
+
+	    si quieres volver a como estaba
+
+	    git reflog
+			 te saca listado de como estaba antes de borrar nada
+
+			 y despues vuelves con al punto inicial donde estaba
+			 git reset --hard 1ce2665
+
+	CAMBIAR NOMBRE ELIMINAR DESDE GIT
+		git mv destruir.txt salvar.txt cambia nombre
+		git rm salvar.tx
+		git status
+		git add -u actualiza todo
+
+	IGNORAR ARCHIVOS
+		crear un archivo que se llame
+		.gitignore		
+			escribir dentro
+			data.log y ese archivo lo excluiria
+			escluir un directorio
+			node_modules/
+		el .gitignore le agregas commit
+
+	RAMAS
+		crear una nueva rama
+		git branch rama-villanos
+
+		listado de ramas
+		git branch
+
+		cambiar de rama
+		git checkout rama-villanos
+
+		incluir rama en la master
+		1.	git checkout master /*te mueves a la rama master*/		
+		2.	unir ambas ramas
+			git merge rama-villanos
+
+		Borrar rama
+			git branch -d rama-villanos
+
+		--------AUTOMATICO
+		git checkout -b rama-villano la crea y te mueves a ella
+		git merge rama-villanos
+		
+	MERGE - UNIONES
+			1.Fast-Forward git detecta que no hay ningun cambio en la rama principal
+			  pueden ser integrados de forma transparente
+			  los commits formaran parte de la rama principal como si nunca nos hubieramos separado
+			  Se puede desactivar si no lo quieres
+
+			2.Merge -Uniones automaticas
+			  git detecta en la	rama principal hubo algun cambio, que la otra rama desconoce
+			  detecta que nose modificaron lineas iguales, no hay conflictos
+			  git las une de forma automatica
+
+			3.Manual
+			  los cambios de una rama afectan a la otra
+			  va dar error conflicto no se puede
+			  lo tienes que resolver de forma manual creando un MERGE COMMIT
+
+		--------CONFLICTOS
+
+		Abres el archivo y quitas lo que no vale, y dejas la ultima actualizacion del contenido
+
+	TAGS
+		etiqueta para poder descargar una version del archivo
+		crear un tag
+		git tag superRelease
+
+		listado de tags
+		git tag
+
+		borrar tag
+		git tag -d superRelease
+
+		git tag -a v1.0.0 -m "apuntes git hasta ramas"
+
+		punto en concreto añadir tag
+		git tag -a v0.1.0 b8f4836 -m "apuntes inicio"
+
+		git show v1.0.0
+
+UNIR COMMITS		
+
+	TRABAJO SEPARADO
+		STASH estaba haciendo una cosa pero me piden hacer otra
+		Modificas un archivo, pero me piden hacer otras cosas
+		para hacer lo que me piden uso el STASH
+		git stash
+			se salva el directorio
+
+
+CAMBIOS TEMPORALES STASH
+
+		git stash
+		git stash list
+		git stash pop
+
+------------------------CUENTA GIT HUB
+crear repositorio
+	origin nombre del repositorio
+	git remote add origin https://github.com/popululu/pruebas_repositorio.git
+
+
+listar los repositorios
+	git remote
+	git remote -v
+
+git push -u origin master
+	nombre del repositorio
+	nombre de la rama
+	-u la proxima vez que hagas un push no necesitas nombrar la rama
+	pide usuario y contraseña
+	escribir contraseña aunque no la veas
+
+GIT PUSH
+	no sube por defecto los tags
+	git push --tags /**sube todas las versiones que nosotros tenemos*/
+
+GIT PULL
+	descargar los cambios
+	git pull
+
+GIT CLONE	
+	te descarga todo el repositorio hace un clone
+	git clone https://github.com/popululu/pruebas_repositorio.git
+
+	carpeta en concreto
+	git clone https://github.com/popululu/pruebas_repositorio.git demo_10
+
+
+GIT FECH
+
+	Actualiza los cambios en nuestro pc que haya habido en el repositorio remoto
+
+
+
+
+	
+
+
+
+
+
+
+
+
