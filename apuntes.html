@@ -231,6 +231,8 @@ RAMAS
 		git branch  listado de ramas
 		
 		git checkout rama-villanos  cambiar de rama
+		
+		git branch -d rama-villanos Borrar rama
 
 
 	MERGE - UNIONES
@@ -238,8 +240,25 @@ RAMAS
 
 		FAST-FORWARD Cuando no hay ningun cambio en la rama principal los cambios pueden ser integrados
 					 los commits formaran parte de la rama principala como sino te hubieras separado
-
 					 se puede desactivar sino lo quieres
+					 
+			1.crear un archivo		
+		    2.crear rama
+		    3.cambiar de rama
+		    4.git Add .
+		    5.git commit 
+		    6.Parece que si que podemos integrar la rama a la principal
+		    7.Ver la diferencia entre ramas
+		      git diff rama-villanos master
+		    8.moverse a la master
+	          git lg y comprobar que el head esta en master
+	        9.Unir ambas ramas
+	          EStando en la rama master
+	          git merge rama-villanos
+	        10. el head apunta a master y a rama-villanos
+	          los cambios forman parte del master ahora
+	        11. ya no hace falta la rama-villanos la tenemos que borrar
+	          git branch -d rama-villanos
 
 		UNIONES AUTOMATICAS
 				detecta que en la rama principal hubo algun cambio pero no detecta conflictos
@@ -250,6 +269,4 @@ RAMAS
 
 
 
-	    1.crear un archivo		
-	    2.crear rama
-	    3.cambiar de rama
+	   
