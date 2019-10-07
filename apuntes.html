@@ -234,6 +234,9 @@ RAMAS
 		
 		git branch -d rama-villanos Borrar rama
 
+		git checkout -b rama-villano cambia de rama y la crea
+		
+		git merge rama-villanos UNIR RAMAS
 
 	MERGE - UNIONES
 		git lo va intentar hacer por nosotros cuando queremos unir una rama
@@ -262,11 +265,38 @@ RAMAS
 
 		UNIONES AUTOMATICAS
 				detecta que en la rama principal hubo algun cambio pero no detecta conflictos
+				1.crea una rama nueva
+				2.haces cambios en una rama en un archivo
+				3.haces cambios en otra rama en otro archivo diferente
+				git merge rama-villanos UNIR RAMAS
+
 
 		MANUAL
 			hay conflicto en un archivo y no puede unirlo
 			tienes que resolverlo de manera manual y hacer un nuevo commit
 
+				1.Modificas el mismo archivo en ambas ramas
+				2.Elegir que version quieres manualmente
+
+-------------------------------------------------------------------------------------
+
+TAGS
+		etiqueta para poder descargar una version del archivo
+		crear un tag
+		git tag superRelease
+
+		listado de tags
+		git tag
+
+		borrar tag
+		git tag -d superRelease
+
+		git tag -a v1.0.0 -m "apuntes git hasta ramas"
+
+		punto en concreto añadir tag
+		git tag -a v0.1.0 b8f4836 -m "apuntes inicio"
+
+		git show v1.0.0
 
 
-	   
+
