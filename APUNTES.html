@@ -1,5 +1,5 @@
 APUNTES
----------------------------
+-------------------------------------------------------------------------------------
 Descargar de git-scm.com e instalar
 
 Abrir carpeta de proyecto boton derecho raton 
@@ -33,9 +33,87 @@ git init
 	-crea una carpeta .git en modo oculto dentro del proyecto
 	todas las versiones las ramas va a estar en esta carpeta
 
+-------------------------------------------------------------------------------------
 git status
  	 en que estado se entuentran nuestros archivos
+ 	 si esta en rojo estan modificados desde el ultimo commit hasta la fecha
+ 	 si esta en verde esta listo para hacer commit
+
+git status -s
+ 	mas corto
+
+git status -s -b
+ 	para ver la rama en la que estamos trabajando 	 
+
+-------------------------------------------------------------------------------------
 
 git add .
  	 agregar todos los archivos para que git este pendiente de los cambios
  	 los manda al escenario, ahi esta lista para tomar fotografias 	 
+
+git add -A
+	agrega todos los archivos que fueron modificados
+
+git add readme.md
+	agrega un archivo en concreto 	 
+
+git add *.png
+	agrega todos los archivos con extension .png
+
+git add css/
+	agrega todos los archios de la carpeta css
+
+git add
+		"*.txt" agrega todos los txt de todo el proyecto
+		*.txt agrega  todos los txt del directorio actual
+		--all agrega todos los archivos modificados
+		<lista de archivos >
+		pdfs/*.pdf
+		pdfs/ todos los archivos dentro de esta carpeta
+
+------------------------------------------------------------------------------------- 	 
+
+git reset *.xml
+	excluir del escenario un archivo este seria los archivos con extension .xml
+
+git reset HEAD nombrearchivo.txt	
+	lo saca del escenario
+
+------------------------------------------------------------------------------------- 	 
+
+git commit -m "Primer commit"
+	 toma una fotografia de como se encuentra el proyecto en este momento 	 
+	 -m Mensaje que este en tiempo presente y algo que diga muy claro a que hace referencia el commit
+
+-------------------------------------------------------------------------------------
+git checkout -- .
+	vuelve al ultimo commit aunque hayas borrado todo
+	si has borrado la carpeta js o otra tambien la recupera
+
+git checkout --nombrearchivo.txt
+	deja el archivo como estaba antes de modificarlo	
+
+-------------------------------------------------------------------------------------
+git log
+	para ver los commit que hay creados
+	ordenados del mas reciente al mas viejo
+
+HEAD Se refiere a la linea del tiempo que estamos trabajando
+	 el ultimo commit	
+
+git log --oneline
+	ver en una linea	 
+
+git log --oneline --decorate --all --graph
+
+-------------------------------------------------------------------------------------
+ALIAS
+	para no tener que escribir tanto
+
+	git config --global alias.lg "log --oneline --decorate --all --graph"
+
+	git lg ejecuta todo los que pusiste entre comillas
+
+	ver todos los alias que tengas
+		git config --global -e	
+		para salir :q	
