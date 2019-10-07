@@ -85,6 +85,40 @@ git commit -m "Primer commit"
 	 toma una fotografia de como se encuentra el proyecto en este momento 	 
 	 -m Mensaje que este en tiempo presente y algo que diga muy claro a que hace referencia el commit
 
+git commit -am "texto del commiit"
+	-am agrega al escenario y hace el commit a la vez
+
+git commit
+	te abre un archivo para que escribas el mensaje en varias lineas
+
+	tocar escape y luego
+	:WQ grabar y salir	
+
+MODIFICAR TEXTO DESPUES DE HACER EL COMMIT
+	git commit --amend -m "Cambiar el mensaje"
+
+INCLUIR MODIFICACIONES EN UN COMMIT YA HECHO
+	
+	git reset --soft HEAD^
+	
+	soft menos destructivo, no va borrar ni modificar nada
+		lo va a revertir a un determinado punto en nuestra historia
+
+	head apunta al ultimo commit
+		^Como estaba antes del ultimo commit
+
+	Despues modificas el archivo con lo que quieras y vuelves hacer el commit
+
+-------------------------------------------------------------------------------------
+
+VIAJES EN EL TIEMPO
+
+
+	
+
+
+
+
 -------------------------------------------------------------------------------------
 git checkout -- .
 	vuelve al ultimo commit aunque hayas borrado todo
@@ -128,3 +162,9 @@ ALIAS
 		git config --global -l	
 
 -------------------------------------------------------------------------------------		
+
+git diff
+	Nos dice los cambios que hubo en los archivos, ente el ultimo commit y la actualidad		
+
+git diff --staged
+	lo mismo pero de los que estan en el escenario
