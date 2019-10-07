@@ -218,3 +218,38 @@ git diff
 
 git diff --staged
 	lo mismo pero de los que estan en el escenario
+
+-------------------------------------------------------------------------------------
+
+RAMAS
+	Linea en el tiempo de commits aparte de la principal
+
+	Puede que hagas algo y luego no quieras incluirlo en la rama principal y luego borras la rama
+
+		git branch rama-villanos   crear una nueva rama
+		
+		git branch  listado de ramas
+		
+		git checkout rama-villanos  cambiar de rama
+
+
+	MERGE - UNIONES
+		git lo va intentar hacer por nosotros cuando queremos unir una rama
+
+		FAST-FORWARD Cuando no hay ningun cambio en la rama principal los cambios pueden ser integrados
+					 los commits formaran parte de la rama principala como sino te hubieras separado
+
+					 se puede desactivar sino lo quieres
+
+		UNIONES AUTOMATICAS
+				detecta que en la rama principal hubo algun cambio pero no detecta conflictos
+
+		MANUAL
+			hay conflicto en un archivo y no puede unirlo
+			tienes que resolverlo de manera manual y hacer un nuevo commit
+
+
+
+	    1.crear un archivo		
+	    2.crear rama
+	    3.cambiar de rama
