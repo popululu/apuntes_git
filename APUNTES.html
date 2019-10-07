@@ -94,6 +94,7 @@ git checkout --nombrearchivo.txt
 	deja el archivo como estaba antes de modificarlo	
 
 -------------------------------------------------------------------------------------
+
 git log
 	para ver los commit que hay creados
 	ordenados del mas reciente al mas viejo
@@ -107,13 +108,23 @@ git log --oneline
 git log --oneline --decorate --all --graph
 
 -------------------------------------------------------------------------------------
+
 ALIAS
 	para no tener que escribir tanto
 
 	git config --global alias.lg "log --oneline --decorate --all --graph"
 
 	git lg ejecuta todo los que pusiste entre comillas
+	
+	git config --global alias.s "status -s -b"
+		-b muestra las ramas branch
+
+		git s ahora git status se puede escribir git s
 
 	ver todos los alias que tengas
 		git config --global -e	
 		para salir :q	
+
+		git config --global -l	
+
+-------------------------------------------------------------------------------------		
