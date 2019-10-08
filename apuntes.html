@@ -298,5 +298,101 @@ TAGS
 
 		git show v1.0.0
 
+-------------------------------------------------------------------------------------
+
+STASH
+	estaba haciendo una cosa pero me piden hacer otra
+	Modificas un archivo, y no haces el commit
+
+	guardas todo en el STASH en un archivo temporal
+
+	WIP work in progress trabajo pendiente
+
+	git stash
+			se salva el directorio
+	git lg
+		git stash list
+			ultima informacion del commit que hay
+
+		git stash list --stat
+			mas informacion de las entradas
+
+		git show stash
+			mas informacion
+		
+		git stash save "Mensaje de ese estash para tenerlo mas claro"			
 
 
+		git stash clear borra todas las entradas y no pregunta
+		
+		Haces las nuevas modificaciones que te han pedido
+		git Add
+		git commit
+		git stash pop
+			Recupera los cambios que teniamos en el stash	
+
+		CONFLICTOS
+			Si hay conflictos en un archivo tienes que arreglaro manualmente despues
+			git add
+			git commit 
+			y despues....			
+        git stash drop			
+        	Elimina el ultimo registro que estaba en el stash
+        	por si hay conflicto y tienes que borrar el WIP
+        	git stash list
+        		comprobar que ya no sale
+
+        RESTAURAR UNA ENTRADA EN PARTICULAR
+            git stash list
+        	git stash apply stash@{1}
+        	git stash drop  stash@{1}
+
+
+-------------------------------------------------------------------------------------
+
+REBASE        	
+
+	cuando creas otra rama y quieres unir los cambios a la rama master
+
+	git checkout rama-misiones
+	git rebase master
+		crea un are temporal y mueve las tareas que has hecho ahi
+
+		mueve el puntero de la rama-misiones al ultimo commit de master
+
+		regresa las tareas ahi
+
+    REBASE INTERACTIVO
+    	~alt+126
+    	git rebase -i HEAD~3
+		
+		apunta al head y quiero 3 commits antes
+
+		-Ordenar commits
+		-Corregir mensajes de los commits
+		-Unir commits
+		-Separar commits
+
+	UNIR DOS COMMITS	
+		git rebase -i HEAD~4
+		
+		letra a para editar
+		Cambiar de lo que se abre pick por p y otro por s	
+
+		para salir escape:Wq
+
+		escribir mensaje del commit
+
+	REVERTIR MODIFICACIONES EN UN ARCHIVO
+		
+		commits de dos archivos en el mismo
+		y spararlos en 2 commits
+
+		git rebase -i HEAD~2
+
+		cambias pick por e
+		git reset HEAD^
+		git s
+		git commit de cada archivo
+
+		git rebase --continue
